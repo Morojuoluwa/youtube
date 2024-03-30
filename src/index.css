@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@layer components{
+  .scrol::-webkit-scrollbar{
+    display: none
+  }
+}
+@tailwind utilities;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a{
+
+  text-decoration: none;
+  color: #5a5a5a;
+}
+
+img{
+  cursor: pointer;
+}
+
+
+.navv{
+  @apply w-[25px] mr-[25px] max-sm:hidden
+}
+
+.syd{
+  @apply w-5 mr-5
+}
+
+.syd-div{
+  @apply flex items-center mb-5  cursor-pointer
+}
+
+.sub-img{
+  @apply w-6 rounded-[50%] mr-5
+}
+
+.small{
+  @apply w-[5%] pt-[20px]
+}
+.small p{
+  @apply hidden 
+}
+
+.small h3{
+  @apply hidden 
+}
+.small hr{
+  @apply w-[50%] mb-[25px]
+}
+
+.card{
+  @apply w-1
+}
+
+.large{
+  @apply pl-[7%]
+}
+
+.card-img{
+  @apply w-full rounded-[5px]
+}
+
+.htu{
+  @apply text-[16px] font-semibold text-black my-[5px]
+}
+
+.htree{
+  @apply text-[14px] font-semibold text-[#555] my-[6px]
+}
+
+.side-vid{
+  @apply flex justify-between mb-2
+}
+
+.side-vid img{
+  @apply basis-[40%] w-[50%]
+}
+
+.vid-info{
+  @apply basis-[49%]
+}
+
+.vid-info h4{
+  @apply text-[13px] mb-3
+}
+.aktiv img{
+  @apply pb-[2px] border-b-[3px] border-solid border-red-800
+}
+
+/* AIzaSyDYn_n3WDEKZEOpuugRyNumvbQjlFrbch8 */
