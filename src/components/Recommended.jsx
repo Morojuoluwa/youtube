@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { API_KEY, value_converter } from '../data'
+import { value_converter } from '../data'
 import { useEffect, useState } from 'react'
 
 const Recommended = ({categoryId}) => {
@@ -8,11 +8,11 @@ const Recommended = ({categoryId}) => {
 
     useEffect(()=>{
         const fetchData = async()=>{
-            const category = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=contentDetails&part=statistics&chart=mostPopular&maxResults=30&videoCategoryId=${categoryId}&key=${API_KEY}`
+            const category = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=contentDetails&part=statistics&chart=mostPopular&maxResults=30&videoCategoryId=${categoryId}&key=${import.meta.env.VITE_API_KEY}`
             await fetch(category).then(response=>response.json()).then(data=>setCatData(data.items))
         }
         fetchData()
-    },[])
+    },)
   return (
     <div className=' max-md:hidden sm:basis-[30%]'>
         {catData.map((hitem,index)=>(

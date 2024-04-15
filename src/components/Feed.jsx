@@ -1,6 +1,6 @@
 // eslint-disable react-hooks/exhaustive-deps;
 import { Link } from 'react-router-dom'
-import { API_KEY, value_converter } from '../data'
+import { value_converter } from '../data'
 import { useEffect, useState } from 'react'
 import moment from 'moment/moment'
 
@@ -10,7 +10,7 @@ const Feed = ({category}) => {
 
     useEffect(()=>{
         const fetchMovieData = async () =>{
-            const video_URL = ` https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&chart=mostPopular&maxResults=30&regionCode=US&videoCategoryId=${category}&key=${API_KEY} `
+            const video_URL = ` https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&chart=mostPopular&maxResults=30&regionCode=US&videoCategoryId=${category}&key=${import.meta.env.VITE_API_KEY} `
     
             await fetch(video_URL)
             .then(response =>response.json())

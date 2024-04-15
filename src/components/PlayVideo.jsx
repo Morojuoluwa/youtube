@@ -5,7 +5,7 @@ import share from '../assets/share.png'
 import save from '../assets/save.png'
 
 import { useEffect, useState } from 'react'
-import { API_KEY, value_converter } from '../data'
+import { value_converter } from '../data'
 import moment from 'moment/moment'
 
 
@@ -17,7 +17,7 @@ const PlayVideo = ({videoId}) => {
 
     useEffect(()=>{
         const fetchItemData = async() =>{
-            const item_url =  `https:youtube.googleapis.com/youtube/v3/videos?part=snippet&part=contentDetails&part=statistics&id=${videoId}&key=${API_KEY}`
+            const item_url =  `https:youtube.googleapis.com/youtube/v3/videos?part=snippet&part=contentDetails&part=statistics&id=${videoId}&key=${import.meta.env.VITE_API_KEY}`
     
             await fetch(item_url).then(response=>response.json()).then(data=>setApiData(data.items[0]))
         }
@@ -26,20 +26,17 @@ const PlayVideo = ({videoId}) => {
 
     useEffect(()=>{
         const fetchDetails = async() =>{
-            const channelDetails = `https:youtube.googleapis.com/youtube/v3/channels?part=snippet&part=contentDetails&part=statistics&id=${apiData?.snippet?.channelId}&key=${API_KEY}`
+            const channelDetails = `https:youtube.googleapis.com/youtube/v3/channels?part=snippet&part=contentDetails&part=statistics&id=${apiData?.snippet?.channelId}&key=${import.meta.env.VITE_API_KEY}`
 
             await fetch(channelDetails).then(response=>response.json()).then(data =>setChannelData(data?.items[0]))
 
-            const corment = `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&part=replies&videoId=${videoId}&key=${API_KEY}`
+            const corment = `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&part=replies&videoId=${videoId}&key=${import.meta.env.VITE_API_KEY}`
              await fetch(corment).then(response=>response.json()).then(data=>setKorment(data.items))
         }
         fetchDetails()
     },[apiData])
 
-    // useEffect(()=>{
-    //     const fetchComments = async() =>{
-            
-    //         // })
+    
   return (
     <div className=' max-md:basis-[100%] max-md:w-full basis-[69%]'>
 
